@@ -1,0 +1,33 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+	Best offers by amazon and flipkart
+{% endblock title %}
+
+{% block content %}
+
+<div class="row my-3 gy-4">
+			<h3 class="mt-0">Offers of the day</h3>
+				{% for product in posts%}
+	<div class="col-md-3  col-6">
+		<a target="_blank" style="display: block;text-align: center;height: 100%;" href="{{product.link_item}}" title="">
+		<div class="card" style="color: #19181B;height: 100%;display: flex; flex-direction: column;justify-content: space-between;">
+			<img class="mt-1" style="max-height: 100px ;margin:0 auto;width: {{product.image_width}}%;" src="{{product.img_url}}" alt="">
+			<div>
+			<p class="px-1 py-0 my-0 text-center"><small>{{product.name}}</small> </p>
+			<P class='px-1 py-0 my-0 text-center'>{{product.price}}</P>
+			<p style="font-size: 11px;text-align: center;"><small>{{product.from_which}} </small></p>
+			</div>
+		</div>
+		</a>
+	</div>
+	{% endfor %}
+</div>
+
+
+
+
+
+    {% include "core/pagination.html" with page=posts %}
+    
+{% endblock content %}

@@ -1,0 +1,168 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+        <!-- owl swiper -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" />
+
+<!-- swiper -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+        <!--========== BOX ICONS ==========-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+
+    <title>{% block title %}
+        
+    {% endblock title %} | Techno Ruhez </title>
+  </head>
+  <body>
+    <header class="header">
+            <div class="header__container">
+                <a href="{% url 'home' %}" class="header__img"  title="">
+                <img  src="https://yt3.ggpht.com/ytc/AAUvwniWRD_VUR5TezjCrVQ5shRizGITi7lAIXXiVJDCLw=s88-c-k-c0x00ffffff-no-rj" alt="">
+                </a>
+                <a href=' {% url "home" %}' class="header__logo">Techno Ruhez</a>
+    
+                <div class="header__search">
+                    <input type="search" placeholder=";(" class="header__input">
+                    <i class='bx bx-search header__icon'></i>
+                </div>
+    
+                <div class="header__toggle">
+                    <i class='bx bx-menu' id="header-toggle"></i>
+                </div>
+            </div>
+        </header>
+
+        <!--========== NAV ==========-->
+        <div class="nav" id="navbar">
+            <nav class="nav__container">
+                <div>
+                    <a href=' {% url "home" %}' class="nav__link nav__logo">
+                        <i class='bx bxs-disc nav__icon' ></i>
+                        <span class="nav__logo-name">Techno Ruhez</span>
+                    </a>
+    
+                    <div class="nav__list">
+                        <div class="nav__items">
+                            <h3 class="nav__subtitle">Profile</h3>
+    
+                            <a href="{% url 'home' %}" class="nav__link active">
+                                <i class='bx bx-home nav__icon' ></i>
+                                <span class="nav__name">Home</span>
+                            </a>
+                            
+                            <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class='bx bx-user nav__icon' ></i>
+                                    <span class="nav__name">News Category</span>
+                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="#" class="nav__dropdown-item">
+                                        We can upload here tags
+                                        </a>
+                                        <a href="#" class="nav__dropdown-item">Smartphones</a>
+                                        <a href="#" class="nav__dropdown-item">Laptops</a>
+                                        <a href="#" class="nav__dropdown-item">Earphones</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                          
+
+                        
+                        </div>
+    
+                        <div class="nav__items">
+                            <h3 class="nav__subtitle">Smartphones</h3>
+    
+
+  <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class='bx bx-mobile-alt nav__icon'></i>
+                                    <span class="nav__name">Best Smartphones</span>
+                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="#" class="nav__dropdown-item">Latest All</a>
+                                        <a href="#" class="nav__dropdown-item">Smartphones</a>
+                                        <a href="#" class="nav__dropdown-item">Laptops</a>
+                                        <a href="#" class="nav__dropdown-item">Earphones</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                                <div class="nav__dropdown">
+                                <a href="#" class="nav__link">
+                                    <i class='bx bx-filter-alt nav__icon' ></i>
+                                    <span class="nav__name">Price range</span>
+                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                                </a>
+
+                                <div class="nav__dropdown-collapse">
+                                    <div class="nav__dropdown-content">
+                                        <a href="/best-smartphones-under-10000/5" class="nav__dropdown-item">Best under 10,000</a>
+                                        <a href="#" class="nav__dropdown-item">Best under 15,000</a>
+                                        <a href="/best-smartphones-under-20000/4" class="nav__dropdown-item">Best under 20,000</a>
+                                        <a href="#" class="nav__dropdown-item">Best under 30,000</a>
+                                        <a href="#" class="nav__dropdown-item">Best under 50,000</a>
+                                        <a href="#" class="nav__dropdown-item">Best under 70,000</a>
+                                        <a href="#" class="nav__dropdown-item">Best Flagships</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <a href="{% url 'all_deals' %}" class="nav__link">
+                                    <i class='bx bxl-firebase nav__icon'></i>
+                                    <span class="nav__name">Top Offers</span>
+                                </a>
+            </nav>
+        </div>
+
+        <!--========== CONTENTS ==========-->
+        <main>
+            {% block content %}
+                
+            {% endblock content %}
+        </main>
+
+        <!--========== MAIN JS ==========-->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- swiper -->
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- owl swiper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+    <script src="{% static 'js/tinymce/js/tinymce.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/tinymce/custom.js' %}" ></script>
+    <script src=" {% static 'js/nav.js' %} " type="text/javascript" charset="utf-8" async defer></script>
+
+  </body>
+</html>

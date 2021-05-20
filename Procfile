@@ -1,0 +1,1 @@
+web: gunicorn techno_ruhez.wsgi --log-file -
