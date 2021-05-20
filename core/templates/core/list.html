@@ -1,0 +1,66 @@
+{% extends "core/base.html" %}
+{% block title %}
+{% if tag %}
+ Tech news of {{ tag.name }}
+ {% else %}
+ Tech News
+{% endif %}
+
+    
+{% endblock title %}
+
+{% block content %}
+
+<div class="pt-3">
+<p class="pb-0 mb-0"> <strong>Tags:</strong> </p>
+	  <!-- Swiper -->
+  <div class="swiper-container all-swiper-container-items mt-0">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"> <a  href=" {% url 'post_list_all' %}" class="tag_link" title="">all</a> </div>
+{%for i in all_tags%}
+
+      <div class="swiper-slide">
+      	<a class="tag_link" href="{% url 'post_list_by_tag' i.slug %}" title="">{{i.name}}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.8/swiper-bundle.min.js" integrity="sha512-sAHYBRXSgMOV2axInO6rUzuKKM5SkItFLlLHQ8YjRD+FBwowtATOs4njP9oim3/MzyAGrB52SLDjpAOLcOT9TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.all-swiper-container-items', {
+      slidesPerView: 'auto',
+      spaceBetween: 30,
+    });
+  </script>
+
+
+
+{% if tag %}
+ <p>Posts tagged with "{{ tag.name }}"</p>
+ {% else %}
+ <p>All Tech News</p>
+{% endif %}
+<div class="row gy-4 gx-4 lsit_all_items_card mt-3">
+ {% for post in posts %}
+	<div class="col-md-3 col-6">
+		<a href="" title="" style="display: block;height: 100%">
+		<div class="card" style="height: 100%;display: flex; flex-direction: column; justify-content: space-between;">
+			<img src="{{post.thumbanil.url}}" alt="">
+			<div>
+			<p class="px-1"> <strong>{{post.title}}</strong> </p>
+			<p class="px-1"> <small> <strong>{{post.publish}}</strong> </small> </p>
+			</div>
+		</div>
+		</a>
+	</div>
+	{% endfor %}
+</div>
+
+<div class="mt-5">
+	
+</div>
+    {% include "core/pagination.html" with page=posts %}
+{% endblock content %}
